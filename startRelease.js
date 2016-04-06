@@ -20,7 +20,8 @@ if(exec('checkout release/'+process.argv[2])!==0){
 var fileData = JSON.parse(fs.readFileSync('../package.json', 'utf8'));
 console.log(fileData.version);
 fileData.version = process.argv[2];
-if(!fs.writeFileSync('../package.json', JSON.stringify(fileData)){
+
+if(!fs.writeFileSync('../package.json', JSON.stringify(fileData))){
     console.log('release branch '+ process.argv[2]+' version update failed');
     return;
 }

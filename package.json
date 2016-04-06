@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JamCode/nodePresentation/issues"
   },
-  "homepage": "https://github.com/JamCode/nodePresentation#readme"
+  "homepage": "https://github.com/JamCode/nodePresentation#readme",
+  "dependencies": {
+    "shelljs": "^0.6.0"
+  }
 }
