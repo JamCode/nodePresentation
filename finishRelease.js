@@ -8,11 +8,11 @@ if (process.argv.length !== 3) {
     return;
 }
 
-exec('git flow release finish ' + process.argv[2]);
-
-// dev流更新到远程仓库
-exec('git push origin dev');
-//master流更新到远程仓库
-exec('git push origin master');
-//发布版本号git
-exec('git push --tags');
+exec('git flow release finish ' + process.argv[2], {}, function(code){
+    // dev流更新到远程仓库
+    exec('git push origin dev');
+    //master流更新到远程仓库
+    exec('git push origin master');
+    //发布版本号git
+    exec('git push --tags');
+});
