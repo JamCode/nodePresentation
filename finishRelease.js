@@ -8,7 +8,7 @@ if (process.argv.length !== 3) {
     return;
 }
 
-console.log(exec('git flow release finish ' + process.argv[2]));
+exec('git flow release finish ' + process.argv[2]);
 
 // dev流更新到远程仓库
 exec('git push origin dev');
