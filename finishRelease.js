@@ -10,6 +10,10 @@ if (process.argv.length !== 3) {
 
 exec('git flow release finish ' + process.argv[2], {}, function(code){
     // dev流更新到远程仓库
+    if(code!==0){
+        console.log(code);
+        return;
+    }
     exec('git push origin dev');
     //master流更新到远程仓库
     exec('git push origin master');
