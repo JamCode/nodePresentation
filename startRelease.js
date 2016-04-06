@@ -10,10 +10,6 @@ if (process.argv.length !== 3) {
 
 exec('git flow release start '+process.argv[2]);
 
-if(exec('checkout release/'+process.argv[2])!==0){
-    return;
-}
-
 var fileData = JSON.parse(fs.readFileSync('../package.json', 'utf8'));
 console.log(fileData.version);
 fileData.version = process.argv[2];
