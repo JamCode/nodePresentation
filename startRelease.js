@@ -8,19 +8,15 @@ if (process.argv.length !== 3) {
     return;
 }
 
-if(exec('git flow release start '+process.argv[2])!==0){
-    console.log('create release branch '+ process.argv[2]+' failed');
-    return;
-}
+exec('git flow release start '+process.argv[2]);
 
-if(exec('checkout release/'+process.argv[2])!==0){
-    return;
-}
-
-var fileData = JSON.parse(fs.readFileSync('../package.json', 'utf8'));
-console.log(fileData.version);
+var fileData = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 fileData.version = process.argv[2];
-if(!fs.writeFileSync('../package.json', JSON.stringify(fileData)){
-    console.log('release branch '+ process.argv[2]+' version update failed');
-    return;
-}
+fs.writeFile('./package.json', JSON.stringify(fileData, null, 2), function(err){
+    if(err){
+        console.log('release branch '+ process.argv[2]+' version update failed');
+        return;
+    }else{
+
+    }
+});
