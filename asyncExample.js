@@ -1,18 +1,29 @@
 // an example using an object instead of an array
+var async = require('async');
+
 async.series({
     one: function(callback){
-        setTimeout(function(){
-            callback(null, 1);
-        }, 200);
+        //update
+        callback(err, null);
+        callback(null, data);
+
     },
     two: function(callback){
         setTimeout(function(){
             callback(null, 2);
         }, 100);
     }
+    three: function(callback){
+        
+    }
 },
 function(err, results) {
     // results is now equal to: {one: 1, two: 2}
+    if(err){
+        res.send(errmsg);
+    }else {
+        res.send(results);
+    }
 });
 
 
@@ -36,6 +47,7 @@ function(err, results) {
 
 async.each(convertImages, function(file, callback) {
     //do some thing;
+    //
     callback();
 }, function(err){
     // if any of the file processing produced an error, err would equal that error

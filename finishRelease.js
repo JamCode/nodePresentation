@@ -2,6 +2,18 @@ require('shelljs/global');
 var fs = require('fs');
 var path = require('path');
 
+var obj = {
+    name: 'wanghan'
+};
+
+
+
+obj.new_name = obj.name;
+
+obj.new_name = 'sss';
+
+console.log(obj);
+
 if (process.argv.length !== 3) {
     console.log(process.argv);
     console.log('parameter should include version number');

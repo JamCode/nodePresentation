@@ -1,6 +1,6 @@
 var http = require('http');
 http.createServer(function(req, res){
-    console.log(req.headers);
+    //console.log(req.headers);
     res.end('hello node.js');
 }).listen(3000);
 console.log('http server running at http://127.0.0.1:3000');

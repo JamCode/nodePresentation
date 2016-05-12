@@ -3,6 +3,10 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+app.use(require('express').static(__dirname+'/node_modules/socket.io-client'));
+app.use(require('express').static(__dirname));
+
+
 
 //响应connection事件
 io.on('connection', function(socket){
